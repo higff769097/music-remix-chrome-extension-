@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>YT Music Repeat Loop</title>
+  <link rel="stylesheet" href="popup.css" />
+  <style>
+    body {
+      width: 420px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>YT Music Repeat Loop</h2>
+
+  <div class="settings-group">
+    <h3>Configuration</h3>
+    <label>
+      <input type="checkbox" id="enabled" checked /> Enable Segment Playback
+    </label>
+    <button id="saveBtn">Save Toggle</button>
+  </div>
+
+  <hr>
+
+  <div class="segments-group">
+    <h3>Custom Segments (Sequential)</h3>
+    <p class="hint">Segments will play once in order. Max song duration automatically handled.</p>
+
+    <div class="segment-input">
+      <div class="input-row">
+        <span>Start:</span>
+        <input type="number" id="startMin" placeholder="MM" min="0" value="0"> :
+        <input type="number" id="startSec" placeholder="SS" min="0" max="59" value="0">
+      </div>
+      <div class="input-row">
+        <span>End:</span>
+        <input type="number" id="endMin" placeholder="MM" min="0" value="0"> :
+        <input type="number" id="endSec" placeholder="SS" min="0" max="59" value="30">
+      </div>
+      <div class="button-row">
+        <button id="addSegmentBtn" class="primary">Add Current Segment</button>
+        <button id="clearSegmentsBtn" class="danger">Clear All for Song</button>
+      </div>
+    </div>
+
+    <div id="segmentListContainer">
+      <h4>Saved for This Song:</h4>
+      <ul id="segmentList"></ul>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
